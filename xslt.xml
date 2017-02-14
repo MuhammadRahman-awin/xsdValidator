@@ -1,0 +1,39 @@
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:output method="text" omit-xml-declaration="yes" encoding="UTF-8"/>
+<xsl:strip-space elements="*"/>
+
+<xsl:template match="/">
+
+<xsl:for-each select="items/item">
+
+<xsl:text>"</xsl:text>
+<xsl:value-of select="normalize-space(Categorie)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Subcategorie)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Prijs)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Deeplink)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Verzendkosten)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Levertijd)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Abonnement)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Titel)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Aansluitkosten)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Duur)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Verlenging)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(PrijsPerMaand)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(PrijsPerMaandEffectief)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Omschrijving)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(AantalMinuten)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(AantalSMS)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(AantalMB)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Merk)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Model)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Variant)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(EAN)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Afbeelding)"/><xsl:text>"|"</xsl:text>
+<xsl:value-of select="normalize-space(Thumbnail)"/><xsl:text>"|"</xsl:text>
+
+<xsl:text>"&#xa;</xsl:text>
+
+</xsl:for-each>
+</xsl:template>
+</xsl:stylesheet>
+
