@@ -1,45 +1,16 @@
 <?php
+libxml_use_internal_errors(true);
+$xmlstr = file_get_contents('xslt.xml');
+$doc = simplexml_load_string($xmlstr);
 
-function libxml_display_error($error)
-{
-    $return = "<br/>\n";
-    switch ($error->level) {
-        case LIBXML_ERR_WARNING:
-            $return .= "<b>Warning $error->code</b>: ";
-            break;
-        case LIBXML_ERR_ERROR:
-            $return .= "<b>Error $error->code</b>: ";
-            break;
-        case LIBXML_ERR_FATAL:
-            $return .= "<b>Fatal Error $error->code</b>: ";
-            break;
-    }
-    $return .= trim($error->message);
-    if ($error->file) {
-        $return .=    " in <b>$error->file</b>";
-    }
-    $return .= " on line <b>$error->line</b>\n";
+$xml = explode("\n", $xmlstr);
 
-    return $return;
-}
-
-function libxml_display_errors() {
+if (!$doc) {
     $errors = libxml_get_errors();
+
     foreach ($errors as $error) {
-        print libxml_display_error($error);
+        var_dump($error);
     }
+
     libxml_clear_errors();
 }
-
-// Enable user error handling
-libxml_use_internal_errors(true);
-
-$xml = new DOMDocument(); 
-$xml->load('xslt.xml'); 
-
-if (!$xml->schemaValidate('schema2.xsd')) {
-    print '<b>DOMDocument::schemaValidate() Generated Errors!</b>';
-    libxml_display_errors();
-}
-
-?>
